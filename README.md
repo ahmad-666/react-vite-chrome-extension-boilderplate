@@ -1,7 +1,19 @@
 # React Chrome Extension Template
 
-This is a template for creating a Chrome extension using React and [Vite](https://vitejs.dev/) with TypeScript.
+#### We write chrome extension like any other react project
 
+    *just use it on smaller window to make sure its responsive
+    *after we finish it we build it and pass build version to 'load unpacked' of chrome extension to test it.
+
+#### from chrome-->extension-->check developer options-->load unpacked-->select build folder('dist') that contains manifest.json to see real result
+
+#### sometimes in chrome extension we need to access special properties,methods from 'chrome' object like chrome.storage,chrome.tabs,chrome.actions, etc
+
+    *for each of these we need to set proper permission in manifest.json e.g if we are using chrome.tabs then in manifest.json: "permissions":["tabs"]
+
+#### we can create src/background.ts file to add background code but then we need to statically move src/background.ts to dist/background.js(with help of vite.config) and in manifest.json we need to have: "background": {"service_worker": "background.js"}
+
+This is a template for creating a Chrome extension using React and [Vite](https://vitejs.dev/) with TypeScript.
 
 ## Getting Started
 
@@ -35,7 +47,7 @@ npm run dev
 
 This will start the Vite development server and open your default browser.
 
-## 📦 Build 
+## 📦 Build
 
 To create a production build:
 
